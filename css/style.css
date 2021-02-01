@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-image: url(../assets/natureBackgroundONE.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+header {
+  width: 100%;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5vh;
+}
+
+h1 {
+  font-family: "Fredoka One", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 100;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#search-display {
+  width: 30%;
+}
+
+#weather-display {
+  width: 70%;
+}
+
+/* SEARCH BAR */
+.search-cnt {
+  text-align: center;
+}
+
+.search-cnt label {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.search-cnt-bar {
+  margin-top: 0.5rem;
+  position: relative;
+  border: 2px #fff solid;
+  height: 40px;
+  border-radius: 25px;
+  max-width: 240px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-cnt-bar button {
+  position: absolute;
+  top: 6px;
+  right: 15px;
+  width: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#city-search {
+  font-size: 1rem;
+  outline: none;
+  display: block;
+  border: none;
+  background: none;
+  width: 80%;
+  color: #fff;
+}
+
+#city-search::-webkit-input-placeholder {
+  font-size: 1rem;
+  color: #fff;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+#city-search:-ms-input-placeholder {
+  font-size: 1rem;
+  color: #fff;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+#city-search::-ms-input-placeholder {
+  font-size: 1rem;
+  color: #fff;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+#city-search::placeholder {
+  font-size: 1rem;
+  color: #fff;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
+/***********************************************************/
+/* Primary Weather Display */
+.today-weather {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.location-cnt {
+  font-family: "Raleway", sans-serif;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+.location-cnt img {
+  width: 20px;
+}
+
+.location-cnt p {
+  margin-left: 0.5rem;
+}
+
+.today-weather-date {
+  font-family: "Fredoka One", sans-serif;
+  font-weight: 100;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.today-weather-icon {
+  display: block;
+  width: 50px;
+  margin: 0.5rem auto 0 auto;
+}
+
+.today-weather-stats-wrapper {
+  width: 50%;
+  margin: 1rem auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.today-weather-stats-cnt {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
+
+.today-weather-stats-cnt span {
+  font-weight: 700;
+}
+
+.today-weather-stats-text:nth-child(2) {
+  margin-top: 0.5rem;
+}
+
+/***********************************************************/
+/* Primary Weather Display */
+.forecast-cnt {
+  width: 90%;
+  max-width: 900px;
+  margin: 7rem auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forecast-card {
+  font-family: "Raleway", sans-serif;
+  padding: 0.75rem;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+
+.forecast-date {
+  font-size: 1.5rem;
+}
+
+.forecast-icon {
+  margin-top: 0.5rem;
+}
+
+.forecast-text {
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
+.forecast-text span {
+  font-weight: 700;
+}
+
+/***********************************************************/
+/*# sourceMappingURL=style.css.map */

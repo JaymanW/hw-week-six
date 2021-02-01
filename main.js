@@ -1,24 +1,26 @@
-$(document).ready(function() {
-    const cityName = `Paris`;
-    const apiKey = `92a52f12ad88e0808bda69b30af7592e`;
-    const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
+// $(document).ready(function() {
+//     const cityName = `Seattle`;
+//     const apiKey = `92a52f12ad88e0808bda69b30af7592e`;
+//     const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
     
-    let location = "";
+//     let location = "";
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-    });
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     }).then(function(response) {
+//         console.log(response);
+//     });
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-    });
-})
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     }).then(function(response) {
+//         console.log(response);
+//     });
+// });
+
+
 // FIRST API
 // response.name => Location name
 // response.weather[0].main =>
@@ -27,7 +29,7 @@ $(document).ready(function() {
 // response.main.temp => Temperature
 // response.main.humidity => Humidity
 // response.wind.speed => Wind Speed
-// response.main
+// response.sys.country => Country Name
 
 // SECOND API
 // response.coord.lon => longtitude
