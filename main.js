@@ -45,6 +45,13 @@ $(document).ready(function() {
         decideIcon(a, iconData, element);
     }
 
+    // Five Day Forecast Selectors Test ****************************************
+    const testArray = document.querySelectorAll(".forecast-card");
+    for (let i = 1; i <= testArray.length; i++) {
+        $(`h3[data-id=${i}]`).text(moment().add(i, 'days').format('l'));
+    }
+    // ***********************************************************************
+
     $("#search-btn").on("click", (e) => {
         e.preventDefault();
 
@@ -99,6 +106,9 @@ $(document).ready(function() {
                 $("#today-weather-temperature").text(`${todayTemp}°`);
                 $("#today-weather-humidity").text(todayHumidity);
                 $("#today-weather-windspeed").text(todayWind);
+
+                // FIVE DAY WEATHER APPENDS
+                console.log(response);
             });
         });
 
