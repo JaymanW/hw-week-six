@@ -2,6 +2,7 @@ $(document).ready(function() {
     // BEGINNING OF CODE WHEN SITE IS OPENED, START WITH RETREIVING DATA FROM LOCAL STORAGE AND PREPOPULATING FIELDS WITH LAST SEARCHED RESULT
     
     const decideIcon = (a, condition, element) => {
+        // Assign "d" or "n" to time variable depending on if it is day or night
         let time = "";
         let icon;
         if (a == true) {
@@ -10,6 +11,7 @@ $(document).ready(function() {
             time = "n";
         }
 
+        // Icon Selection Logic
         if (condition === "Thunderstorm") {
             icon = "11";
         } else if (condition === "Drizzle") {
@@ -25,11 +27,13 @@ $(document).ready(function() {
         } else {
             icon = "50";
         }
+
         // ELEMENT
         element.attr("src", `http://openweathermap.org/img/wn/${icon}${time}@2x.png`);
     }
     
     const evaluateIcon = (iconData, element) => {
+        // Evaluating if it is day/night based on the time
         let hour = parseInt(moment().format('h'));
         let a;
         if (moment().format('a') == "pm") {
@@ -44,24 +48,9 @@ $(document).ready(function() {
         }
         decideIcon(a, iconData, element);
     }
-
-    // Five Day Forecast Selectors Test ****************************************
-    const testArray = document.querySelectorAll(".forecast-card");
-    for (let i = 1; i <= testArray.length; i++) {
-        $(`h3[data-id=${i}]`).text(moment().add(i, 'days').format('l'));
-    }
-    // ***********************************************************************
-
+    // Search Button "click" event listener
     $("#search-btn").on("click", (e) => {
         e.preventDefault();
-
-        console.log(moment().format('h'));
-
-        // const evaluateIcon = () => {
-        //     let hour = moment().format('h');
-        //     console.log(typeof hour);
-        //     // if ()
-        // }
 
         const city = $("#city-search").val().trim();
         $("#city-search").val("");
@@ -89,7 +78,7 @@ $(document).ready(function() {
             console.log(response);
             console.log(todayTemp);
 
-            // WEEKLY API URL
+            // FORECAST API URL
             const queryURL2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
             $.ajax({
@@ -100,15 +89,22 @@ $(document).ready(function() {
                 $("#location-name").text(cityName);
                 $(".today-weather-date").text(todayDate);
                 evaluateIcon(todayIconData, $(".today-weather-icon"));
-                // $(".today-weather-icon")
-                // $("img[data-id=${id}]")
 
                 $("#today-weather-temperature").text(`${todayTemp}°`);
                 $("#today-weather-humidity").text(todayHumidity);
                 $("#today-weather-windspeed").text(todayWind);
 
-                // FIVE DAY WEATHER APPENDS
+                // FORECAST APPENDS
                 console.log(response);
+
+                // Five Day Forecast Selectors Test ****************************************
+                const forecastArray = document.querySelectorAll(".forecast-card");
+                for (let i = 1; i <= forecastArray.length; i++) {
+                    const forecastWeatherData = response.daily[i].weather[0].main;
+                    $(`h3[data-id=${i}]`).text(moment().add(i, 'days').format('l'));
+                    evaluateIcon(forecastWeatherData, $(`.forecast-icon[data-id=${i}]`))
+                }
+                // ***********************************************************************
             });
         });
 
@@ -149,3 +145,6 @@ $(document).ready(function() {
 // http://openweathermap.org/img/wn/${iconID}@2x.png => ICON LINK
 
 // moment.js for 5 all dates in the app ("Calendar Time" section for adding days for 5 day forecast)
+
+// $(".today-weather-icon")
+// $("img[data-id=${id}]")
