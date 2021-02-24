@@ -1,4 +1,4 @@
-# hw-week-five
+# hw-week-six
 
 ![photo of weather application](assets/weatherAppDemo.PNG "Project photo")
 
