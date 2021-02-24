@@ -1,6 +1,15 @@
 $(document).ready(function() {
     // BEGINNING OF CODE WHEN SITE IS OPENED, START WITH RETREIVING DATA FROM LOCAL STORAGE AND PREPOPULATING FIELDS WITH LAST SEARCHED RESULT
     
+    // IF there is localStorage data THEN use it
+    // ELSE create localStorage data with init city
+
+    // Every time displayWeatherData is called, end the function by assigning the given city to localStorage
+
+    // Every time displayWeatherData is called, at the beginning it will assign the city data to a new child appended in the history section
+    // A click event listener will be placed on each history item
+    // The event listener will call displayWeatherData with the given city data for each history item
+
     const decideIcon = (a, condition, element) => {
         // Assign "d" or "n" to time variable depending on if it is day or night
         let time = "";
@@ -48,13 +57,8 @@ $(document).ready(function() {
         }
         decideIcon(a, iconData, element);
     }
-    // Search Button "click" event listener
-    $("#search-btn").on("click", (e) => {
-        e.preventDefault();
 
-        const city = $("#city-search").val().trim();
-        $("#city-search").val("");
-
+    const displayWeatherData = (city) => {
         // API KEY
         const apiKey = `92a52f12ad88e0808bda69b30af7592e`;
 
@@ -66,9 +70,12 @@ $(document).ready(function() {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
+            // Set search to localStorage
+            const cityName = response.name;
+            localStorage.setItem('cityData', cityName);
+            
             const lon = response.coord.lon;
             const lat = response.coord.lat;
-            const cityName = response.name;
             const todayDate = moment().format('l');
             const todayIconData = response.weather[0].main;
             const todayTemp = Math.round(((response.main.temp-273.15)*1.8)+32);
@@ -115,10 +122,24 @@ $(document).ready(function() {
                 }
             });
         });
+    }
 
-        // WEEKLY FORECAST API CALL
+    // Auto fill page with previous search results based on localStorage **********
+    
+    let cityData = localStorage.getItem('cityData');
 
+    if (cityData === null) {
+        displayWeatherData("Seattle");
+    } else {
+        displayWeatherData(cityData);
+    }
 
+    // Search Button "click" event listener
+    $("#search-btn").on("click", (e) => {
+        e.preventDefault();
+        const city = $("#city-search").val().trim();
+        $("#city-search").val("");
+        displayWeatherData(city);
     });
 
 

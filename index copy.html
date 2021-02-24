@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <header>
+        <h1>Daily Weather</h1>
+    </header>
+    <main>
+        <div id="search-display">
+            <div class="search-cnt">   
+                <label for="city-search">Search for a City:</label>
+                <div class="search-cnt-bar">  
+                    <input type="text" id="city-search" value="" placeholder="Ex. Minneapolis...">
+                    <button id="search-btn">
+                        <img src="assets/magnifyingGlass23.png" alt="search icon">
+                    </button>
+                </div>  
+            </div>
+            <div class="history-cnt"></div>
+        </div>
+        <div id="weather-display">
+            <div class="today-weather">
+                <div class="location-cnt">
+                    <img src="assets/location30.png" alt="location marker">
+                    <p id="location-name">PLACEHOLDER</p>
+                </div>
+                <h3 class="today-weather-date">PL/PL/PL</h3>
+                <img src="assets/sunny60.png" alt="weather icon" class="today-weather-icon">
+                <div class="today-weather-stats-wrapper"> 
+                    <div class="today-weather-stats-cnt">
+                        <p class="today-weather-stats-text">Temperature: <span id="today-weather-temperature">PLA</span></p>
+                        <p class="today-weather-stats-text">Humidity: <span id="today-weather-humidity">PLA</span></p>
+                    </div>
+                    <div class="today-weather-stats-cnt">
+                        <p class="today-weather-stats-text">Wind Speed: <span id="today-weather-windspeed">PLA</span></p>
+                        <p class="today-weather-stats-text">UV Index: <span id="today-weather-UVindex">PLA</span></p>
+                    </div>
+                </div>   
+            </div>
+            <!-- ************************************* -->
+            <div class="forecast-cnt">
+                <div class="forecast-card" data-id="1">
+                    <h3 class="forecast-date" data-id="1">PL/PL/PL</h3>
+                    <img src="assets/sunny35.png" alt="" class="forecast-icon" data-id="1">
+                    <p class="forecast-text">Temperature: <span class="forecast-temperature" data-id="1">PL</span></p>
+                    <p class="forecast-text">Humidity: <span class="forecast-humidity" data-id="1">PL</span></p>
+                </div>
+    
+                <div class="forecast-card" data-id="2">
+                    <h3 class="forecast-date" data-id="2">PL/PL/PL</h3>
+                    <img src="assets/sunny35.png" alt="" class="forecast-icon" data-id="2">
+                    <p class="forecast-text">Temperature: <span class="forecast-temperature" data-id="2">PL</span></p>
+                    <p class="forecast-text">Humidity: <span class="forecast-humidity" data-id="2">PL</span></p>
+                </div>
+    
+                <div class="forecast-card" data-id="3">
+                    <h3 class="forecast-date" data-id="3">PL/PL/PL</h3>
+                    <img src="assets/sunny35.png" alt="" class="forecast-icon" data-id="3">
+                    <p class="forecast-text">Temperature: <span class="forecast-temperature" data-id="3">PL</span></p>
+                    <p class="forecast-text">Humidity: <span class="forecast-humidity" data-id="3">PL</span></p>
+                </div>
+    
+                <div class="forecast-card" data-id="4">
+                    <h3 class="forecast-date" data-id="4">PL/PL/PL</h3>
+                    <img src="assets/sunny35.png" alt="" class="forecast-icon" data-id="4">
+                    <p class="forecast-text">Temperature: <span class="forecast-temperature" data-id="4">PL</span></p>
+                    <p class="forecast-text">Humidity: <span class="forecast-humidity" data-id="4">PL</span></p>
+                </div>
+    
+                <div class="forecast-card" data-id="5">
+                    <h3 class="forecast-date" data-id="5">PL/PL/PL</h3>
+                    <img src="assets/sunny35.png" alt="" class="forecast-icon" data-id="5">
+                    <p class="forecast-text">Temperature: <span class="forecast-temperature" data-id="5">PL</span></p>
+                    <p class="forecast-text">Humidity: <span class="forecast-humidity" data-id="5">PL</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
