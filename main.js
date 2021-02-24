@@ -132,7 +132,7 @@ $(document).ready(function() {
     // Auto fill page with previous search results based on localStorage **********
     let cityData = localStorage.getItem('cityData');
 
-    if (cityData === null) {
+    if (!cityData) {
         displayWeatherData("Seattle");
     } else {
         displayWeatherData(cityData);
