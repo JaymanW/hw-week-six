@@ -165,10 +165,10 @@ main {
 /* Primary Weather Display */
 .forecast-cnt {
     width: 90%;
-    max-width: 900px;
+    max-width: 960px;
     margin: 7rem auto 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -177,6 +177,10 @@ main {
     padding: 0.75rem;
     border: 1px solid #fff;
     border-radius: 10px;
+
+    &:nth-child(n+2) {
+        margin-left: 1rem;
+    }
 }
 
 .forecast-date {
@@ -196,3 +200,6 @@ main {
     }
 }
 /***********************************************************/
+.forecast-icon {
+    width: 55px;
+}

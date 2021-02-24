@@ -86,6 +86,8 @@ $(document).ready(function() {
                 method: "GET"
             }).then(function(response) {
                 // TODAY'S WEATHER APPENDS
+                const todayUV = response.daily[0].uvi;
+                
                 $("#location-name").text(cityName);
                 $(".today-weather-date").text(todayDate);
                 evaluateIcon(todayIconData, $(".today-weather-icon"));
@@ -93,18 +95,24 @@ $(document).ready(function() {
                 $("#today-weather-temperature").text(`${todayTemp}°`);
                 $("#today-weather-humidity").text(todayHumidity);
                 $("#today-weather-windspeed").text(todayWind);
+                $("#today-weather-UVindex").text(todayUV);
 
-                // FORECAST APPENDS
+                // Console Log Second API Call
                 console.log(response);
 
-                // Five Day Forecast Selectors Test ****************************************
+                // Five Day Forecast Appends
                 const forecastArray = document.querySelectorAll(".forecast-card");
                 for (let i = 1; i <= forecastArray.length; i++) {
-                    const forecastWeatherData = response.daily[i].weather[0].main;
+                    const forecastIcon = response.daily[i].weather[0].main;
+                    const forecastTemp = Math.round(((response.daily[i].temp.day-273.15)*1.8)+32);
+                    const forecastHumidity = response.daily[i].humidity;
+                    
+
                     $(`h3[data-id=${i}]`).text(moment().add(i, 'days').format('l'));
-                    evaluateIcon(forecastWeatherData, $(`.forecast-icon[data-id=${i}]`))
+                    evaluateIcon(forecastIcon, $(`.forecast-icon[data-id=${i}]`));
+                    $(`.forecast-temperature[data-id=${i}]`).text(`${forecastTemp}°`);
+                    $(`.forecast-humidity[data-id=${i}]`).text(forecastHumidity);
                 }
-                // ***********************************************************************
             });
         });
 

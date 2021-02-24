@@ -210,14 +210,14 @@ main {
 /* Primary Weather Display */
 .forecast-cnt {
   width: 90%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 7rem auto 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -228,6 +228,10 @@ main {
   padding: 0.75rem;
   border: 1px solid #fff;
   border-radius: 10px;
+}
+
+.forecast-card:nth-child(n+2) {
+  margin-left: 1rem;
 }
 
 .forecast-date {
@@ -248,4 +252,7 @@ main {
 }
 
 /***********************************************************/
+.forecast-icon {
+  width: 55px;
+}
 /*# sourceMappingURL=style.css.map */
