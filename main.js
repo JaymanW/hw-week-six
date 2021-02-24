@@ -1,16 +1,6 @@
 $(document).ready(function() {
-    // BEGINNING OF CODE WHEN SITE IS OPENED, START WITH RETREIVING DATA FROM LOCAL STORAGE AND PREPOPULATING FIELDS WITH LAST SEARCHED RESULT
-    
-    // IF there is localStorage data THEN use it
-    // ELSE create localStorage data with init city
-
-    // Every time displayWeatherData is called, end the function by assigning the given city to localStorage
-
-    // Every time displayWeatherData is called, at the beginning it will assign the city data to a new child appended in the history section
-    // A click event listener will be placed on each history item
-    // The event listener will call displayWeatherData with the given city data for each history item
-
-    const decideIcon = (a, condition, element) => {
+        
+        const decideIcon = (a, condition, element) => {
         // Assign "d" or "n" to time variable depending on if it is day or night
         let time = "";
         let icon;
@@ -67,8 +57,7 @@ $(document).ready(function() {
         newButton.on("click", (e) => {
             const btnData = newButton.attr("data-tag");
             displayWeatherData(btnData);
-        })
-        
+        });
     }
 
     const displayWeatherData = (city) => {
@@ -141,14 +130,13 @@ $(document).ready(function() {
     }
 
     // Auto fill page with previous search results based on localStorage **********
-    
-    // let cityData = localStorage.getItem('cityData');
+    let cityData = localStorage.getItem('cityData');
 
-    // if (cityData === null) {
-    //     displayWeatherData("Seattle");
-    // } else {
-    //     displayWeatherData(cityData);
-    // }
+    if (cityData === null) {
+        displayWeatherData("Seattle");
+    } else {
+        displayWeatherData(cityData);
+    }
 
     // Search Button "click" event listener
     $("#search-btn").on("click", (e) => {
@@ -157,43 +145,4 @@ $(document).ready(function() {
         $("#city-search").val("");
         displayWeatherData(city);
     });
-
-    // e.preventDefault();
-    // const btnData = $(this).attr("data-tag");
-    // console.log(btnData);
-    // displayWeatherData(btnData);
-
-    // console.log(weather);
-
-      
-
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    // }).then(function(response) {
-    //     console.log(response);
-    // });
 });
-
-
-// FIRST API
-// response.name => Location name
-// response.weather[0].main =>
-// response.weather[0].icon
-
-// response.main.temp => Temperature
-// response.main.humidity => Humidity
-// response.wind.speed => Wind Speed
-// response.sys.country => Country Name
-
-// SECOND API
-// response.coord.lon => longtitude
-// response.coord.lat => Lattitude
-
-
-// http://openweathermap.org/img/wn/${iconID}@2x.png => ICON LINK
-
-// moment.js for 5 all dates in the app ("Calendar Time" section for adding days for 5 day forecast)
-
-// $(".today-weather-icon")
-// $("img[data-id=${id}]")

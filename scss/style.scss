@@ -22,7 +22,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    // border: 2px red solid;
     margin-bottom: 5vh;
 }
 
@@ -38,12 +37,10 @@ main {
 
 #search-display {
     width: 30%;
-    // border: 2px red solid;
 }
 
 #weather-display {
     width: 70%;
-    // border: 2px red solid;
 }
 
 /* SEARCH BAR */
@@ -104,7 +101,6 @@ main {
 /* Primary Weather Display */
 .today-weather {
     width: 60%;
-    // border: solid 2px red;
     margin: 0 auto;
 }
 
