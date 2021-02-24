@@ -58,6 +58,19 @@ $(document).ready(function() {
         decideIcon(a, iconData, element);
     }
 
+    const generateHistoryItem = (cityName) => {
+        const newButton = $("<button></button>");
+        newButton.attr("class", "history-btn");
+        newButton.attr("data-tag", cityName);
+        newButton.text(cityName);
+        $(".history-cnt").prepend(newButton);
+        newButton.on("click", (e) => {
+            const btnData = newButton.attr("data-tag");
+            displayWeatherData(btnData);
+        })
+        
+    }
+
     const displayWeatherData = (city) => {
         // API KEY
         const apiKey = `92a52f12ad88e0808bda69b30af7592e`;
@@ -73,6 +86,9 @@ $(document).ready(function() {
             // Set search to localStorage
             const cityName = response.name;
             localStorage.setItem('cityData', cityName);
+
+            // Generate history with new cityName
+            generateHistoryItem(cityName);
             
             const lon = response.coord.lon;
             const lat = response.coord.lat;
@@ -126,13 +142,13 @@ $(document).ready(function() {
 
     // Auto fill page with previous search results based on localStorage **********
     
-    let cityData = localStorage.getItem('cityData');
+    // let cityData = localStorage.getItem('cityData');
 
-    if (cityData === null) {
-        displayWeatherData("Seattle");
-    } else {
-        displayWeatherData(cityData);
-    }
+    // if (cityData === null) {
+    //     displayWeatherData("Seattle");
+    // } else {
+    //     displayWeatherData(cityData);
+    // }
 
     // Search Button "click" event listener
     $("#search-btn").on("click", (e) => {
@@ -142,6 +158,10 @@ $(document).ready(function() {
         displayWeatherData(city);
     });
 
+    // e.preventDefault();
+    // const btnData = $(this).attr("data-tag");
+    // console.log(btnData);
+    // displayWeatherData(btnData);
 
     // console.log(weather);
 

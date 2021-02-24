@@ -255,4 +255,32 @@ main {
 .forecast-icon {
   width: 55px;
 }
+
+/* Weather History Display */
+.history-cnt {
+  margin-top: 2rem;
+}
+
+.history-btn {
+  font-family: "Raleway", sans-serif;
+  display: block;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  outline: none;
+}
+
+.history-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.history-btn:nth-child(n+2) {
+  margin-top: 1rem;
+}
+
+/***********************************************************/
 /*# sourceMappingURL=style.css.map */
